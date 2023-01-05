@@ -19,8 +19,39 @@ public class Exercicio_22 {
 
 	public static void main(String[] args) {
 		
-		
 		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Informe o total de morangos (em Kg):");
+		double kilosMorango = scan.nextDouble();
+		
+		System.out.println("Informe o total de maçãs (em Kg):");
+		double kilosMaca = scan.nextDouble();
+		
+		double precoMorango = 0;
+		if(kilosMorango <= 5) {
+			precoMorango = 2.5;
+		} else if(kilosMorango > 5) {
+			precoMorango = 2.2;
+		}
+		
+		double precoMaca = 0;
+		if(kilosMorango <= 5) {
+			precoMaca = 1.8;
+		} else if(kilosMaca > 5) {
+			precoMaca = 1.5;
+		}
+		
+		double precoParcial = precoMorango + precoMaca;
+		double precoFinal = precoParcial;
+		
+		double desconto = 0;
+		if((kilosMorango + kilosMaca > 8) || precoParcial > 25) {
+			desconto = (precoParcial / 100) * 10;
+		}
+		
+		precoFinal = precoParcial - desconto;
+		
+		System.out.printf("Valor a pagar: R$ %.2f", precoFinal);
 	}
 
 }

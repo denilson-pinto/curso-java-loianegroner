@@ -30,14 +30,14 @@ public class Exercicio_19 {
 		boolean valida = true;
 		
 		switch(operacao) {
-		case "+": resultado = num1 + num2; 
-				  System.out.println("Soma: " + resultado); break;
+		case "+": resultado = num1 + num2;
+			System.out.println("Soma: " + resultado); break;
 		case "-": resultado = num1 - num2;
-				  System.out.println("Subtração: " + resultado); break;
+			System.out.println("Subtração: " + resultado); break;
 		case "*": resultado = num1 * num2;
-				  System.out.println("Multiplicação: " + resultado); break;
+			System.out.println("Multiplicação: " + resultado); break;
 		case "/": resultado = num1 / num2;
-				  System.out.println("Divisão: " + resultado); break;
+			System.out.println("Divisão: " + resultado); break;
 		default: System.out.println("Operação inválida!"); 
 				 valida = false;
 		}
