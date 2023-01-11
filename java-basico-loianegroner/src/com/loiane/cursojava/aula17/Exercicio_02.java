@@ -6,10 +6,35 @@ package com.loiane.cursojava.aula17;
   de erro e voltando a pedir as informações.
 */
 
+import java.util.Scanner;
+
 public class Exercicio_02 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Scanner scan = new Scanner(System.in);
+		
+		boolean ehValido = false;
+		
+		String user;
+		String password;
+		
+		do {
+			System.out.println("Informe o usuário:");
+			user = scan.next();
+			
+			System.out.println("Informe a senha:");
+			password = scan.next();
+			
+			if(!(user.equalsIgnoreCase(password))) {
+				ehValido = true;
+				System.out.println("Credenciais válidas.");
+			} else {
+				System.out.println("Credenciais inválidas. Usuário e senha não podem ser iguais.");
+				System.out.println("------------------------------------------------------------");
+			}
+			
+		} while(!ehValido);
 
 	}
 
