@@ -6,11 +6,27 @@ package com.loiane.cursojava.aula17;
   função de potência da linguagem.
 */
 
+import java.util.Scanner;
+
 public class Exercicio_13 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Informe o primeiro número:");
+		int base = scan.nextInt();
+		
+		System.out.println("Informe o segundo número:");
+		int exp = scan.nextInt();
+		
+		int resultado = base;
+		
+		for(int i = 1; i < exp; i++) {
+			resultado *= base;	
+		}
+		
+		System.out.println(base + " elevado a " + exp + " = " + resultado);
 	}
 
 }
