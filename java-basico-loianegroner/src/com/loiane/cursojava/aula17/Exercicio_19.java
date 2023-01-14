@@ -10,11 +10,11 @@ public class Exercicio_19 {
 
 		Scanner scan = new Scanner(System.in);
 		
+		/* 
+		Solução da Loiane
+		 
 		System.out.println("Entre com o número de notas:");
 		int notas = scan.nextInt();
-		
-		/*
-		Solução da Loiane
 		
 		double soma = 0;
 		double media = 0;
