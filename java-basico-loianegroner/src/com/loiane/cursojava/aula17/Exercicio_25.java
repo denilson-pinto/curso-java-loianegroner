@@ -22,11 +22,65 @@ package com.loiane.cursojava.aula17;
   ...
 */
 
+import java.util.Scanner;
+
 public class Exercicio_25 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		Scanner scan = new Scanner(System.in);
+		
+		int produtos = 1;
+		double preco = 0.01;
+		double total = 0;
+		double dinheiro = 0;
+		double troco = dinheiro - total;
+		boolean sair = false;
+		String resposta;
+		
+		System.out.println("Lojas Tabajara");
+		
+		do {
+			System.out.println("\nDeseja registrar uma nova compra ? (S/N)");
+			resposta = scan.next();
+
+			if (resposta.equalsIgnoreCase("S")) {
+
+				for (int i = 0; i < produtos; i++) {
+					System.out.print("\nProduto " + (i + 1) + ":");
+					preco = scan.nextDouble();
+
+					System.out.printf("R$ %.2f", preco);
+
+					produtos++;
+					total += preco;
+				}
+
+			} else if (preco == 0 || resposta.equalsIgnoreCase("N")) {
+				sair = true;
+			}
+			
+		} while(!sair);
+		
+		/*while(preco != 0) {
+			
+			//produtos++;
+			for(int i = 0; i < produtos; i++) {
+				preco = scan.nextDouble();
+				System.out.printf("\nProduto " + (i + 1) + ": R$ %.2f", preco);
+				
+				
+				//System.out.printf(" R$ %.2f", preco);
+			}
+			
+			total += preco;
+		}*/
+		
+		System.out.printf("\nTotal: R$ %.2f", total);
+		System.out.printf("\nDinheiro: R$ %.2f", dinheiro);
+		dinheiro = scan.nextDouble();
+		
+		System.out.printf("\nTroco: R$ %.2f", troco);
 	}
 
 }
