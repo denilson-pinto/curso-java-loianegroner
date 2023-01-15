@@ -18,8 +18,14 @@ package com.loiane.cursojava.aula17;
 public class Exercicio_24 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		System.out.println("Preço do pão: R$ 0.18");
+		System.out.println("Panificadora Pão de Ontem - Tabela de preços");
+		
+		for (int i = 1; i <= 50; i++) {
+			System.out.printf("\n" + i + " - R$ %.2f", (i * 0.18));
+		}
+		
 	}
 
 }
