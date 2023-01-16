@@ -16,13 +16,14 @@ package com.loiane.cursojava.aula17;
   Produto 1: R$ 2.20
   Produto 2: R$ 5.80
   Produto 3: R$ 0
-  Total: R$ 9.00
+  Total: R$ 8.00
   Dinheiro: R$ 20.00
-  Troco: R$ 11.00
+  Troco: R$ 12.00
   ...
 */
 
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class Exercicio_25 {
 
@@ -30,57 +31,61 @@ public class Exercicio_25 {
 
 		Scanner scan = new Scanner(System.in);
 		
-		int produtos = 1;
+		int itens = 1;
 		double preco = 0.01;
 		double total = 0;
 		double dinheiro = 0;
 		double troco = dinheiro - total;
 		boolean sair = false;
 		String resposta;
+		String mensagemCompra;
 		
-		System.out.println("Lojas Tabajara");
+		String formato = "R$ #,##0.00";
+		DecimalFormat df = new DecimalFormat(formato);
 		
 		do {
 			System.out.println("\nDeseja registrar uma nova compra ? (S/N)");
 			resposta = scan.next();
 
-			if (resposta.equalsIgnoreCase("S")) {
+			if(resposta.length() > 1) {
+				System.out.println("Valor inválido!");
+			} else if (resposta.equalsIgnoreCase("S")) {
 
-				for (int i = 0; i < produtos; i++) {
-					System.out.print("\nProduto " + (i + 1) + ":");
+				mensagemCompra = "Lojas Tabajara\n";
+				
+				System.out.println("Informe a quantidade de itens:");
+				itens = scan.nextInt();
+				
+				for (int i = 1; i <= itens; i++) {
+					System.out.println("Produto " + i + ": ");
 					preco = scan.nextDouble();
-
-					System.out.printf("R$ %.2f", preco);
-
-					produtos++;
+					
 					total += preco;
+					
+					mensagemCompra += "Produto " + i + ": " + df.format(preco) + "\n";
 				}
+				
+				mensagemCompra += "Total: " + df.format(total) + "\n";
+				
+				System.out.printf(mensagemCompra);
+				
+				System.out.printf("Valor pago em dinheiro: \n");
+				dinheiro = scan.nextDouble();
+				
+				mensagemCompra += "Dinheiro: " + df.format(dinheiro);
+				
+				troco = dinheiro - total;
+				
+				mensagemCompra += "\nTroco: " + df.format(troco);
+				
+				System.out.println(mensagemCompra);
 
-			} else if (preco == 0 || resposta.equalsIgnoreCase("N")) {
+			} else {
 				sair = true;
 			}
 			
 		} while(!sair);
 		
-		/*while(preco != 0) {
-			
-			//produtos++;
-			for(int i = 0; i < produtos; i++) {
-				preco = scan.nextDouble();
-				System.out.printf("\nProduto " + (i + 1) + ": R$ %.2f", preco);
-				
-				
-				//System.out.printf(" R$ %.2f", preco);
-			}
-			
-			total += preco;
-		}*/
-		
-		System.out.printf("\nTotal: R$ %.2f", total);
-		System.out.printf("\nDinheiro: R$ %.2f", dinheiro);
-		dinheiro = scan.nextDouble();
-		
-		System.out.printf("\nTroco: R$ %.2f", troco);
 	}
 
 }
